@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import shortid from 'shortid'
 
 function Toolbar(props) {
 
@@ -7,8 +8,8 @@ function Toolbar(props) {
     const selected = props.selected
     const selectFunction = props.onSelectFilter    
 
-    const filtersList = filters.map(function(filter,index){
-        return <li key={index} className={`filter ${(filter === selected) ? 'active' : ''}`} data-filter={filter} onClick={selectFunction}>{filter}</li>
+    const filtersList = filters.map(function(filter){
+        return <li key={shortid.generate()} className={`filter ${(filter === selected) ? 'active' : ''}`} data-filter={filter} onClick={selectFunction}>{filter}</li>
     }) 
 
     return (
@@ -19,7 +20,8 @@ function Toolbar(props) {
 }
 
 Toolbar.propTypes = {
-
+    filters: PropTypes.array,
+    selected: PropTypes.string
 }
 
 export default Toolbar

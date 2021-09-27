@@ -29,14 +29,13 @@ function Portfolio(props) {
                 filters={["All", "Websites", "Flayers", "Business Cards"]}
                 selected={selectedFilter}
                 onSelectFilter={selectFilter}/>  
-            <div className="clearfix"></div>
             <ProjectList projects={arrProjects} />
         </div>
     )
 }
 
 Portfolio.propTypes = {
-
+    projects: PropTypes.array
 }
 
 export default Portfolio

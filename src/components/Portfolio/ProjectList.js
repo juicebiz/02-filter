@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import shortid from 'shortid'
 
 function ProjectList(props) {
 
     const arrProjects = props.projects
         
-    const projectsList = arrProjects.map((project,index) =>
-        <div><img key={index} className="gallery_img" src={project.img} alt="alt" dataFilter={project.filter} /></div>
+    const projectsList = arrProjects.map((project) =>
+        <div key={shortid.generate()}><img className="gallery_img" src={project.img} alt="alt" data-filter={project.filter} /></div>
     )    
 
     return (
@@ -17,7 +18,7 @@ function ProjectList(props) {
 }
 
 ProjectList.propTypes = {
-
+    projects: PropTypes.array
 }
 
 export default ProjectList
